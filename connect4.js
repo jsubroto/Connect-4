@@ -5,7 +5,7 @@ class Connect4 {
         this.player = "red";
         this.selector = selector;
         this.isGameOver = false;
-        this.onPlayerMove = function() {};
+        this.onPlayerMove = function () { };
         this.createGrid();
         this.setupEventListener();
     }
@@ -70,7 +70,7 @@ class Connect4 {
             $lastEmptyCell.removeClass(`empty next-${that.player}`);
             $lastEmptyCell.addClass(that.player);
             $lastEmptyCell.data("player", that.player);
-            
+
 
             const winner = that.checkForWinner($lastEmptyCell.data("row"), $lastEmptyCell.data("col"))
             if (winner) {
@@ -120,19 +120,19 @@ class Connect4 {
         }
 
         function checkDiagonalBLtoTR() {
-            return checkWin({i: 1, j: 1}, {i: -1, j: -1}); // Down to left then Up right
+            return checkWin({ i: 1, j: 1 }, { i: -1, j: -1 }); // Down to left then Up right
         }
 
         function checkDiagonaTLtoBR() {
-            return checkWin({i: 1, j: -1}, {i: -1, j: 1}); // Down to right then Up left
+            return checkWin({ i: 1, j: -1 }, { i: -1, j: 1 }); // Down to right then Up left
         }
 
         function checkVerticals() {
-            return checkWin({i: -1, j: 0}, {i: 1, j: 0}); // Up then down
+            return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 }); // Up then down
         }
 
         function checkHorizontals() {
-            return checkWin({i: 0, j: -1}, {i: 0, j: 1}); // Right then left
+            return checkWin({ i: 0, j: -1 }, { i: 0, j: 1 }); // Right then left
         }
 
         return checkVerticals() || checkHorizontals() || checkDiagonalBLtoTR() || checkDiagonaTLtoBR();
